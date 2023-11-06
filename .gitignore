@@ -1,4 +1,5 @@
 tokens.json
-code_search/*
 .DS_Store
+code_search/*
 info_slides/*
+data/*
