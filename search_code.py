@@ -5,12 +5,15 @@ from pathlib import Path
 import time
 
 per_page = 100
-pages = 5
+pages = 10
 file_name = f"completion_{pages * per_page}"
-token = "token"
+
+with open("tokens.json", 'r') as f:
+    data = json.load(f)
+    token = data["github"]
 
 url_list = [
-    f"https://api.github.com/search/code?q=openai.ChatCompletion.create+format&sort=indexed&ref=advsearch&per_page={per_page}&page="
+    f"https://api.github.com/search/code?q=openai.ChatCompletion.create+language:python&ref=advsearch&per_page={per_page}&page="
 ]
 accept = "application/vnd.github+json"
 authorization = "Bearer " + token
