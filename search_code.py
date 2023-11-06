@@ -6,7 +6,7 @@ import time
 
 per_page = 100
 pages = 10
-file_name = f"completion_{pages * per_page}"
+file_name = f"completion_{pages * per_page}.json"
 
 with open("tokens.json", 'r') as f:
     data = json.load(f)
@@ -56,7 +56,7 @@ with requests.session() as s:
 #                     print("Duplicated:", repo_name)
 
 print(f"Number of Repos (out of {pages * per_page}):", len(list(repo_dict.keys())))
-dump_path = open(f"code_search/{file_name}.json", "w")
+dump_path = open(f"code_search/{file_name}", "w")
 json.dump(repo_dict, dump_path, indent = 4)
 dump_path.close()
 

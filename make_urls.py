@@ -10,7 +10,7 @@ def get_orig_urls(in_file: str, out_file: str) -> None:
         for (_, info) in data.items():
             orig_url = info.get("file_url")
             orig_urls.append(orig_url)
-        
+
     with open(out_file, 'r+') as f:
         data = json.load(f)
         data["orig_urls"] = orig_urls
@@ -51,8 +51,9 @@ def get_raw_urls(file_name: str) -> None:
         json.dump(data, f, indent = 4)
         f.truncate()
 
+# Holdout data (manually add orig_urls)
+get_raw_urls("data_sets/data_holdout.json")
 
-get_raw_urls("data_holdout.json")
-
-get_orig_urls("code_search/completion_1000.json", "data_all.json")
-get_raw_urls("data_all.json")
+# All data
+get_orig_urls("code_search/completion_1000.json", "data_sets/data_all.json")
+get_raw_urls("data_sets/data_all.json")
