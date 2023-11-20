@@ -1,5 +1,6 @@
 tokens.json
 .DS_Store
 code_search/*
+code_trace/*
 data_sets/*
 info_slides/*
