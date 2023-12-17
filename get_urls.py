@@ -1,5 +1,8 @@
 import json
 from typing import Dict, List
+import os
+
+from utils import Path
 
 def get_orig_urls(in_file: str, out_file: str) -> None:
     orig_urls = []
@@ -52,8 +55,15 @@ def get_raw_urls(file_name: str) -> None:
         f.truncate()
 
 # Holdout data (manually add orig_urls)
-get_raw_urls("data_sets/data_holdout.json")
+get_raw_urls(
+    os.path.join(Path.DATA_DIR, Path.HOLDOUT_FILE)
+)
 
 # All data
-get_orig_urls("code_search/completion_1000.json", "data_sets/data_all.json")
-get_raw_urls("data_sets/data_all.json")
+get_orig_urls(
+    os.path.join(Path.SEARCH_DIR, Path.FILE_1000),
+    os.path.join(Path.DATA_DIR, Path.COMPLETE_FILE)
+)
+get_raw_urls(
+    os.path.join(Path.DATA_DIR, Path.COMPLETE_FILE)
+)

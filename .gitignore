@@ -1,5 +1,6 @@
 tokens.json
 .DS_Store
+__pycache__/*
 
 code_search/*
 code_trace/*
